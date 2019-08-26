@@ -33,7 +33,7 @@ In order to find accessible (open) chromatin regions, the genome is treated with
 As a result, we obtain reads from open chromatin regions. ATAC-Seq uses paired-end reads. That means, two reads with two different adapters sequencing the extremities of a fragment which spans a certain distance. However, we also have fragments that span one nucleosome or more. As you can imagine, these fragments span a bigger distance than most of the fragments from open chromatin regions (with no nucleosome). Thus, we can filter the reads based on this distance in the analysis.
 
 ## Data
-In this tutorial we will use data from the study of [Buenrostro et al., 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3959825), the first paper on ATAC-Seq. The data is from a human cell line of purified CD4+ T cells, called GM12878. The original dataset had 2 x 200 million reads and this would be too big to process in a training session. So, we downsampled the original dataset to 200,000 randomly selected reads. We also added about 200,000 reads pairs that will map to chromosome 22 to have a good profile on a chromosome, similar to what you might get with a typical ATAC-seq sample (2 x 20 million reads in original fastq). Furthermore, we want to compare the predicted open chromatin regions to known binding sites of a transcriptional repressor called [CTCF](https://en.wikipedia.org/wiki/CTCF). This will help us to find sites that are potential silencer regions. For that reason, we will download predicted sites of CTCF from ENCODE (ENCSR361KVZ, dataset ENCFF049IPS).
+In this tutorial we will use data from the study of [Buenrostro et al., 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3959825), the first paper on ATAC-Seq. The data is from a human cell line of purified CD4+ T cells, called GM12878. The original dataset had 2 x 200 million reads and this would be too big to process in a training session. So, we downsampled the original dataset to 200,000 randomly selected reads. We also added about 200,000 reads pairs that will map to chromosome 22 to have a good profile on this chromosome, similar to what you might get with a typical ATAC-seq sample (2 x 20 million reads in original fastq). Furthermore, we want to compare the predicted open chromatin regions to known binding sites of a well-known DNA-binding protein implicated in 3D structure: [CTCF](https://en.wikipedia.org/wiki/CTCF). This protein binds between 15 and 40 thousand sites genome-wide and thus generate a region of open chromatin around it. It can be used as a positive control for good quality of ATAC-Seq. For that reason, we will download binding sites of CTCF identified by ChIP in the same cell line from ENCODE (ENCSR000DZN, dataset ENCFF117WKK).
 
 
 > ### Agenda
@@ -58,12 +58,12 @@ We first need to download the reads (fastqs) as well as other annotation files. 
 >
 >    {% include snippets/create_new_history.md %}
 >
-> 2. Import the files from [Zenodo](https://zenodo.org/record/3270536) and [ENCODE](https://www.encodeproject.org/experiments/ENCSR361KVZ/) or from the shared data library
+> 2. Import the files from [Zenodo](https://zenodo.org/record/3270536) and [ENCODE](https://www.encodeproject.org/) or from the shared data library
 >
 >    ```
 >    https://zenodo.org/record/3270536/files/SRR891268_R1.fastq.gz
 >    https://zenodo.org/record/3270536/files/SRR891268_R2.fastq.gz
->    https://www.encodeproject.org/files/ENCFF049IPS/@@download/ENCFF049IPS.bed.gz
+>    https://www.encodeproject.org/files/ENCFF117WKK/@@download/ENCFF117WKK.bed.gz
 >    ```
 >
 >    {% include snippets/import_via_link.md %}
