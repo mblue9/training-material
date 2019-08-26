@@ -70,7 +70,6 @@ We first need to download the reads (fastqs) as well as other annotation files. 
 >    {% include snippets/import_from_data_library.md %}
 >
 > 3. Rename the datasets
-> 4. Check that the datatype
 >
 >    {% include snippets/rename_dataset.md %}
 >
